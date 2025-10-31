@@ -2,33 +2,39 @@
   "placeholderImages": [
     {
       "id": "hero",
-      "description": "A modern building lobby with a sleek elevator.",
-      "imageUrl": "https://images.unsplash.com/photo-1686100510516-57fca1d59cbc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsb2JieXxlbnwwfHx8fDE3NjE5MjAyNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "modern lobby"
+      "description": "A luxury home interior with a modern aesthetic.",
+      "imageUrl": "https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBob21lfGVufDB8fHx8MTc2MTkyNDI1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury home"
     },
     {
       "id": "alto",
-      "description": "Interior of the Alto series elevator, showing premium materials.",
-      "imageUrl": "https://images.unsplash.com/photo-1711967150682-a15517202b82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxldmF0b3IlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjE4NDUwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "elevator interior"
+      "description": "A clean and modern budget-friendly elevator.",
+      "imageUrl": "https://images.unsplash.com/photo-1673006456789-ab4ab22edd88?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBlbGV2YXRvcnxlbnwwfHx8fDE3NjE5MjQyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern elevator"
     },
     {
       "id": "relux",
-      "description": "The Relux series elevator in a luxury residential building.",
-      "imageUrl": "https://images.unsplash.com/photo-1621293947870-3d7d6001d2a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsdXh1cnklMjBlbGV2YXRvcnxlbnwwfHx8fDE3NjE5MjAyNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "luxury elevator"
+      "description": "A premium elevator with stainless steel and mirror interiors.",
+      "imageUrl": "https://images.unsplash.com/photo-1592256410394-51c948ec13d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJlbWl1bSUyMGVsZXZhdG9yfGVufDB8fHx8MTc2MTkyNDI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "premium elevator"
     },
     {
       "id": "austre",
-      "description": "The Austre series elevator, showcasing its minimalist design.",
-      "imageUrl": "https://images.unsplash.com/photo-1673385698386-93a6fa2d3c69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtaW5pbWFsaXN0JTIwZWxldmF0b3J8ZW58MHx8fHwxNzYxOTIwMjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "minimalist elevator"
+      "description": "A luxury elevator with glass doors and sophisticated lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1676459250563-0b83f43ddc26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBnbGFzcyUyMGVsZXZhdG9yfGVufDB8fHx8MTc2MTkyNDI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury glass elevator"
     },
     {
-      "id": "advantage",
-      "description": "Volo Elevate technician working on an elevator panel.",
-      "imageUrl": "https://images.unsplash.com/photo-1636218685495-8f6545aadb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNobmljaWFuJTIwd29ya2luZ3xlbnwwfHx8fDE3NjE4ODg4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "technician working"
+      "id": "about-mission",
+      "description": "An abstract image representing precision and engineering.",
+      "imageUrl": "https://images.unsplash.com/photo-1585366958403-bacb4c36a1a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcmVjaXNpb24lMjBlbmdpbmVlcmluZ3xlbnwwfHx8fDE3NjE5MjQyNTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "precision engineering"
+    },
+    {
+      "id": "about-vision",
+      "description": "A cityscape of Bengaluru representing urban mobility.",
+      "imageUrl": "https://images.unsplash.com/photo-1651991372794-b1fcaaf4d634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxCZW5nYWx1cnUlMjBjaXR5c2NhcGV8ZW58MHx8fHwxNzYxOTI0MjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Bengaluru cityscape"
     }
   ]
 }

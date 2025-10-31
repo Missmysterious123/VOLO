@@ -1,13 +1,13 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { products, type Product } from '@/lib/products';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { Check } from 'lucide-react';
-import Link from 'next/link';
-import { AnimatedSection } from '@/components/client/AnimatedSection';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Check } from 'lucide-react';
+import { AnimatedSection } from '@/components/client/AnimatedSection';
 
 type ProductPageProps = {
   params: {
@@ -26,18 +26,17 @@ const getProductFromSlug = (slug: string): Product | undefined => {
 };
 
 export async function generateMetadata({ params }: ProductPageProps) {
-    const product = getProductFromSlug(params.slug)
-    if (!product) {
-        return {
-            title: 'Product Not Found'
-        }
-    }
+  const product = getProductFromSlug(params.slug);
+  if (!product) {
     return {
-        title: `${product.name} | Volo Elevate`,
-        description: product.tagline,
-    }
+      title: 'Product Not Found',
+    };
+  }
+  return {
+    title: `${product.name} | Volo Lifts & Elevators`,
+    description: product.description,
+  };
 }
-
 
 export default function ProductPage({ params }: ProductPageProps) {
   const product = getProductFromSlug(params.slug);
@@ -49,29 +48,43 @@ export default function ProductPage({ params }: ProductPageProps) {
   const productImage = PlaceHolderImages.find((img) => img.id === product.imageId);
 
   return (
-    <div className="container mx-auto max-w-6xl py-12 px-4 md:py-20">
+    <div className="container mx-auto max-w-7xl py-12 px-4 md:py-20">
       <AnimatedSection>
         <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
-          <div className="sticky top-24">
+          <div className="sticky top-24 space-y-4">
             {productImage && (
               <Image
                 src={productImage.imageUrl}
                 alt={product.name}
                 width={800}
                 height={600}
-                className="rounded-xl shadow-lg w-full"
+                className="rounded-2xl shadow-lg w-full"
                 data-ai-hint={productImage.imageHint}
               />
             )}
+             <h1 className="text-4xl md:text-5xl font-bold">{product.headline}</h1>
           </div>
+
           <div className="flex flex-col gap-8">
-            <div className="space-y-2">
-                <h1 className="text-4xl md:text-5xl font-bold font-headline">{product.name}</h1>
-                <p className="text-xl text-muted-foreground">{product.tagline}</p>
-                <p className="pt-2">{product.description}</p>
-            </div>
+             <Card className="shadow-lg rounded-2xl">
+                <CardHeader>
+                    <CardTitle>Details</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-muted-foreground">{product.description}</p>
+                </CardContent>
+            </Card>
+
+            <Card className="shadow-lg rounded-2xl">
+              <CardHeader>
+                <CardTitle>Design</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{product.design}</p>
+              </CardContent>
+            </Card>
             
-            <Card>
+            <Card className="shadow-lg rounded-2xl">
                 <CardHeader>
                     <CardTitle>Key Features</CardTitle>
                 </CardHeader>
@@ -87,25 +100,9 @@ export default function ProductPage({ params }: ProductPageProps) {
                 </CardContent>
             </Card>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>Technical Specifications</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="divide-y">
-                        {product.specs.map((spec) => (
-                            <div key={spec.label} className="py-3 grid grid-cols-2">
-                                <span className="font-medium">{spec.label}</span>
-                                <span className="text-muted-foreground">{spec.value}</span>
-                            </div>
-                        ))}
-                    </div>
-                </CardContent>
-            </Card>
-
-            <div className="bg-primary/10 p-6 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-lg font-semibold text-primary">{product.price}</p>
-                <Button asChild size="lg" className="w-full sm:w-auto">
+            <div className="bg-primary/10 p-6 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="text-xl font-semibold text-primary">{product.priceRange}</p>
+                <Button asChild size="lg" className="w-full sm:w-auto font-bold">
                     <Link href="/contact">Request a Consultation</Link>
                 </Button>
             </div>

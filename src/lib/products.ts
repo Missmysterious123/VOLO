@@ -3,77 +3,73 @@ export type Product = {
   name: string;
   slug: string;
   tagline: string;
+  headline: string;
+  shortDescription: string;
   description: string;
-  price: string;
+  priceRange: string;
+  design: string;
   features: string[];
-  specs: { label: string; value: string }[];
   imageId: string;
 };
 
 export const products: Product[] = [
   {
     id: 'alto',
-    name: 'Alto Series',
+    name: 'Volo Alto Series',
     slug: 'alto',
-    tagline: 'Innovative design meets superior performance.',
-    description: 'The Alto series is the epitome of modern engineering, blending sleek aesthetics with cutting-edge technology. Designed for residential and low-rise commercial buildings, it offers a smooth, quiet, and energy-efficient ride.',
-    price: 'Starting from $25,000',
+    tagline: 'Budget Lifts',
+    headline: 'Volo Alto Series — Budget Lifts',
+    shortDescription: 'Smooth performance with a geared/gearless traction system, perfect for residential use.',
+    description: 'The Volo Alto Series offers smooth performance with its efficient geared/gearless traction system. It supports up to 4 stops and a capacity of 408kg, making it a versatile choice for both indoor and outdoor installations.',
+    priceRange: '₹5.95L – ₹8.6L',
+    design: 'Features powder-coated solid color doors and a stainless steel cabin without a mirror, focusing on functionality and durability.',
     features: [
-      'Eco-efficient gearless motor',
-      'Customizable cabin interiors',
-      'Advanced safety features',
-      'Smart destination control system',
-      'Vibration-free operation',
-    ],
-    specs: [
-      { label: 'Capacity', value: '4-8 Persons' },
-      { label: 'Speed', value: 'Up to 1.5 m/s' },
-      { label: 'Max Travel', value: '45m' },
-      { label: 'Door Type', value: 'Automatic Sliding' },
+      'Efficient Performance',
+      'Counterweight System',
+      'Guided Safety Features',
+      'Up to 4 stops',
+      '408kg capacity',
+      'Indoor/Outdoor compatible',
     ],
     imageId: 'alto',
   },
   {
     id: 'relux',
-    name: 'Relux Series',
+    name: 'Volo Relux Series',
     slug: 'relux',
-    tagline: 'The pinnacle of luxury and comfort.',
-    description: 'Experience unparalleled luxury with the Relux series. Crafted with the finest materials and exquisite attention to detail, this elevator is designed for high-end residences, hotels, and exclusive corporate offices. Every journey is a first-class experience.',
-    price: 'Starting from $50,000',
+    tagline: 'Premium Lifts',
+    headline: 'Volo Relux Series — Premium Lifts',
+    shortDescription: 'A blend of superior design and reliable operation for a premium experience.',
+    description: 'The Volo Relux Series provides a premium experience with its gearless traction, stainless steel frame and doors, ensuring smooth and reliable operation. It accommodates up to 6 stops with a 544kg capacity.',
+    priceRange: '₹7.5L – ₹9.5L',
+    design: 'The cabin is designed with mirror interiors, elegant touch buttons, and a handrail, creating a sophisticated ambiance.',
     features: [
-      'Premium cabin finishes (wood, leather, stone)',
-      'Integrated ambient lighting and sound system',
-      'Biometric access control',
-      'Silent and seamless ride quality',
-      'Personalized touch-screen interface',
-    ],
-    specs: [
-      { label: 'Capacity', value: '6-12 Persons' },
-      { label: 'Speed', value: 'Up to 2.5 m/s' },
-      { label: 'Max Travel', value: '100m' },
-      { label: 'Door Type', value: 'Automatic, Center Opening' },
+      'Uninterrupted Performance',
+      'Superior Design',
+      'Regulatory Compliance',
+      'Up to 6 stops',
+      '544kg capacity',
+      'Gearless traction',
     ],
     imageId: 'relux',
   },
   {
     id: 'austre',
-    name: 'Austre Series',
+    name: 'Volo Austre Series',
     slug: 'austre',
-    tagline: 'Robust solutions for every need.',
-    description: 'The Austre series is our workhorse, built for durability and reliability. Ideal for high-traffic commercial buildings, hospitals, and public spaces, it delivers consistent performance under demanding conditions without compromising on safety or comfort.',
-    price: 'Starting from $35,000',
+    tagline: 'Luxury Lifts',
+    headline: 'Volo Austre Series — Luxury Lifts',
+    shortDescription: 'The pinnacle of luxury with cutting-edge technology and exquisite design.',
+    description: 'The Volo Austre Series is the apex of luxury, constructed with premium materials for frictionless motion. It is equipped with advanced safety systems like speed governors and ARD/ERD. This series can serve up to 12 stops with a capacity of 1788kg.',
+    priceRange: '₹8.2L – ₹14.7L',
+    design: 'Exudes luxury with glass doors, sophisticated LED lighting, and high-end cabin finishes for a truly opulent experience.',
     features: [
-      'Heavy-duty construction',
-      'Vandal-resistant cabin and fixtures',
-      'Spacious and accessible design',
-      'High-performance motor for constant use',
-      'Easy maintenance and serviceability',
-    ],
-    specs: [
-      { label: 'Capacity', value: '10-20 Persons' },
-      { label: 'Speed', value: 'Up to 2.0 m/s' },
-      { label: 'Max Travel', value: '75m' },
-      { label: 'Door Type', value: 'Wide, Automatic Sliding' },
+      'Cutting-edge Technology',
+      'Advanced Control System',
+      'Luxury Design',
+      'Up to 12 stops',
+      '1788kg capacity',
+      'Frictionless motion',
     ],
     imageId: 'austre',
   },

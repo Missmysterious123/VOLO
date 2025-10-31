@@ -3,10 +3,15 @@ import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import './globals.css';
+import { Montserrat } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import { WhatsAppButton } from '@/components/client/WhatsAppButton';
+
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: 'Volo Elevate - Luxury Lifts & Elevators',
-  description: 'Experience the pinnacle of vertical transportation with Volo Elevate. Discover our series of luxury lifts and elevators designed for modern living.',
+  title: 'Volo — Elegant. Budget. Luxury Lifts.',
+  description: 'A house with an elegant modern lift & elevator that is perfect for you & your family, now comes at an affordable price.',
 };
 
 export default function RootLayout({
@@ -16,17 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body bg-background text-foreground antialiased">
+      <body className={cn("min-h-screen bg-background font-sans antialiased", montserrat.variable)}>
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>
+        <WhatsAppButton />
         <Toaster />
       </body>
     </html>

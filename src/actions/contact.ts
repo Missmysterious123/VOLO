@@ -5,10 +5,10 @@ import { z } from "zod";
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
+  message: z.string().min(10, "Message must be at least 10 characters long."),
 });
 
-type State = {
+export type State = {
     errors?: {
         name?: string[];
         email?: string[];
@@ -18,7 +18,7 @@ type State = {
     success: boolean;
 };
 
-export async function submitInquiry(prevState: any, formData: FormData) : Promise<State> {
+export async function submitInquiry(prevState: State | null, formData: FormData) : Promise<State> {
   const validatedFields = contactSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -35,7 +35,8 @@ export async function submitInquiry(prevState: any, formData: FormData) : Promis
 
   const { name, email, message } = validatedFields.data;
 
-  // In a real application, you would send an email, save to a database, etc.
+  // In a real application, you would save to a database.
+  // For this demo, we'll just log it to the console.
   console.log("New Inquiry Received:");
   console.log("Name:", name);
   console.log("Email:", email);

@@ -1,116 +1,83 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { useFormState } from "react-dom";
+import { useEffect } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { submitInquiry } from "@/actions/contact";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { submitInquiry } from "@/actions/contact";
-import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters."),
-  email: z.string().email("Please enter a valid email address."),
-  message: z.string().min(10, "Message must be at least 10 characters."),
-});
+const initialState = {
+  message: null,
+  errors: {},
+  success: false,
+};
 
-type ContactFormValues = z.infer<typeof contactSchema>;
+function SubmitButton() {
+  // This component will be created by `useFormStatus` in a future update
+  // For now, we manually handle the pending state
+  return (
+    <Button type="submit" className="w-full font-bold">
+      Send Message
+    </Button>
+  );
+}
 
 export default function ContactForm() {
+  const [state, formAction] = useFormState(submitInquiry, initialState);
   const { toast } = useToast();
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
 
-  const onSubmit = async (data: ContactFormValues) => {
-    const formData = new FormData();
-    formData.append("name", data.name);
-    formData.append("email", data.email);
-    formData.append("message", data.message);
-    
-    // Previous state is null here as we are not using useFormState
-    const result = await submitInquiry(null, formData);
-
-    if (result.success) {
+  useEffect(() => {
+    if (state.success) {
       toast({
         title: "Success!",
-        description: result.message,
+        description: state.message,
       });
-      form.reset();
-    } else {
+      // Resetting form would require client-side state, which we avoid with server actions.
+      // The form can be reset if needed by wrapping it in a <form> and calling form.reset()
+    } else if (state.message && !state.success && Object.keys(state.errors ?? {}).length > 0) {
+      // Create a single toast for all validation errors
+      const errorMessages = Object.values(state.errors).flat().join("\n");
+      toast({
+        variant: "destructive",
+        title: "Validation Failed",
+        description: <div style={{ whiteSpace: 'pre-line' }}>{errorMessages}</div>,
+      });
+    } else if (state.message) {
       toast({
         variant: "destructive",
         title: "Uh oh! Something went wrong.",
-        description: result.message || "There was a problem with your submission.",
+        description: state.message,
       });
     }
-  };
+  }, [state, toast]);
+
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Full Name</FormLabel>
-              <FormControl>
-                <Input placeholder="John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email Address</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="john.doe@example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Tell us how we can help you"
-                  className="min-h-[120px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
-          {form.formState.isSubmitting ? "Submitting..." : "Send Message"}
-        </Button>
-      </form>
-    </Form>
+    <form action={formAction} className="space-y-6">
+        <div className="space-y-2">
+            <label htmlFor="name" className="text-sm font-medium">Full Name</label>
+            <Input id="name" name="name" placeholder="John Doe" required />
+            {state.errors?.name && <p className="text-sm text-destructive">{state.errors.name.join(', ')}</p>}
+        </div>
+        <div className="space-y-2">
+            <label htmlFor="email" className="text-sm font-medium">Email Address</label>
+            <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
+            {state.errors?.email && <p className="text-sm text-destructive">{state.errors.email.join(', ')}</p>}
+        </div>
+        <div className="space-y-2">
+            <label htmlFor="message" className="text-sm font-medium">Message</label>
+            <Textarea
+                id="message"
+                name="message"
+                placeholder="Tell us how we can help you"
+                className="min-h-[120px]"
+                required
+            />
+            {state.errors?.message && <p className="text-sm text-destructive">{state.errors.message.join(', ')}</p>}
+        </div>
+      <SubmitButton />
+    </form>
   );
 }
