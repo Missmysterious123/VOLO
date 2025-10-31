@@ -57,17 +57,17 @@ export default function ContactForm() {
   return (
     <form action={formAction} className="space-y-6">
         <div className="space-y-2">
-            <label htmlFor="name" className="text-sm font-medium">Full Name</label>
+            <label htmlFor="name" className="text-sm font-medium text-foreground">Full Name</label>
             <Input id="name" name="name" placeholder="John Doe" required />
             {state.errors?.name && <p className="text-sm text-destructive">{state.errors.name.join(', ')}</p>}
         </div>
         <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium">Email Address</label>
+            <label htmlFor="email" className="text-sm font-medium text-foreground">Email Address</label>
             <Input id="email" name="email" type="email" placeholder="john.doe@example.com" required />
             {state.errors?.email && <p className="text-sm text-destructive">{state.errors.email.join(', ')}</p>}
         </div>
         <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-medium">Message</label>
+            <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
             <Textarea
                 id="message"
                 name="message"

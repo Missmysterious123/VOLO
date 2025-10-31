@@ -38,7 +38,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 mr-4">
-          <span className="font-extrabold text-xl tracking-wider">VOLO</span>
+          <span className="font-extrabold text-xl tracking-wider text-foreground">VOLO</span>
         </Link>
 
         {/* Desktop Navigation */}
