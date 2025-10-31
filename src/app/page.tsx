@@ -41,7 +41,7 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <Button asChild size="lg" className="font-bold bg-primary text-primary-foreground hover:bg-primary/90">
-              <Link href="/contact">Book Now</Link>
+              <Link href="/contact">Get a Quote</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary font-bold">
               <Link href="/partner">Refer & Earn Discount</Link>
