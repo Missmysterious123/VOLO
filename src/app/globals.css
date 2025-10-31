@@ -8,48 +8,48 @@ body {
 
 @layer base {
   :root {
-    --background: 240 10% 97%; /* #F5F5F5 light silver */
-    --foreground: 0 0% 13%; /* #222222 charcoal */
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 13%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 13%;
-    --primary: 41 53% 57%; /* #C0A062 gold */
-    --primary-foreground: 0 0% 13%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 13%; /* #222222 charcoal */
-    --accent-foreground: 0 0% 98%;
+    --background: 210 40% 98%; /* Light Blue */
+    --foreground: 215 28% 17%; /* Dark Blue */
+    --card: 210 40% 100%;
+    --card-foreground: 215 28% 17%;
+    --popover: 210 40% 100%;
+    --popover-foreground: 215 28% 17%;
+    --primary: 217 91% 60%; /* Bright Blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 215 28% 17%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215 25% 62.7%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 215 28% 17%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 41 53% 57%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
     --radius: 1rem;
   }
 
   .dark {
-    --background: 0 0% 13%; /* #222222 charcoal */
-    --foreground: 0 0% 97%; /* #F5F5F5 light silver */
-    --card: 0 0% 15%;
-    --card-foreground: 0 0% 97%;
-    --popover: 0 0% 15%;
-    --popover-foreground: 0 0% 97%;
-    --primary: 41 53% 57%; /* #C0A062 gold */
-    --primary-foreground: 0 0% 13%;
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 97%; /* #F5F5F5 light silver */
-    --accent-foreground: 0 0% 13%;
+    --background: 222 47% 11%; /* Very Dark Blue */
+    --foreground: 210 40% 98%; /* Light Blue */
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217 91% 60%; /* Bright Blue */
+    --primary-foreground: 222 47% 11%;
+    --secondary: 217 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32.6% 17.5%;
+    --muted-foreground: 215 27.9% 60%;
+    --accent: 217 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 41 53% 57%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32.6% 17.5%;
+    --input: 217 32.6% 17.5%;
+    --ring: 217 91% 60%;
   }
 }
 
