@@ -1,3 +1,34 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A modern building lobby with a sleek elevator.",
+      "imageUrl": "https://images.unsplash.com/photo-1686100510516-57fca1d59cbc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjBsb2JieXxlbnwwfHx8fDE3NjE5MjAyNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern lobby"
+    },
+    {
+      "id": "alto",
+      "description": "Interior of the Alto series elevator, showing premium materials.",
+      "imageUrl": "https://images.unsplash.com/photo-1711967150682-a15517202b82?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZWxldmF0b3IlMjBpbnRlcmlvcnxlbnwwfHx8fDE3NjE4NDUwNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "elevator interior"
+    },
+    {
+      "id": "relux",
+      "description": "The Relux series elevator in a luxury residential building.",
+      "imageUrl": "https://images.unsplash.com/photo-1621293947870-3d7d6001d2a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsdXh1cnklMjBlbGV2YXRvcnxlbnwwfHx8fDE3NjE5MjAyNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury elevator"
+    },
+    {
+      "id": "austre",
+      "description": "The Austre series elevator, showcasing its minimalist design.",
+      "imageUrl": "https://images.unsplash.com/photo-1673385698386-93a6fa2d3c69?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtaW5pbWFsaXN0JTIwZWxldmF0b3J8ZW58MHx8fHwxNzYxOTIwMjYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "minimalist elevator"
+    },
+    {
+      "id": "advantage",
+      "description": "Volo Elevate technician working on an elevator panel.",
+      "imageUrl": "https://images.unsplash.com/photo-1636218685495-8f6545aadb71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNobmljaWFuJTIwd29ya2luZ3xlbnwwfHx8fDE3NjE4ODg4Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technician working"
+    }
+  ]
 }
