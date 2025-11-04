@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { products } from '@/lib/products';
-import { ArrowRight, Star, Shield, Zap, Wrench, Building, Briefcase } from 'lucide-react';
+import { ArrowRight, Star, Shield, Zap, Wrench, Settings } from 'lucide-react';
 import { AnimatedSection } from '@/components/client/AnimatedSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -59,10 +59,18 @@ export default function Home() {
   ];
 
   const partners = [
-    { name: 'Prestige Group', category: 'Real Estate Developer', icon: <Building className="h-8 w-8 text-primary" /> },
-    { name: 'Sobha Ltd.', category: 'Real Estate Developer', icon: <Building className="h-8 w-8 text-primary" /> },
-    { name: 'Total Environment', category: 'Architectural Firm', icon: <Briefcase className="h-8 w-8 text-primary" /> },
-    { name: 'Zachariah and Sons', category: 'Engineering Consultants', icon: <Briefcase className="h-8 w-8 text-primary" /> },
+    { name: 'TorinDrive', category: 'Technology Partner' },
+    { name: 'Wittur', category: 'Component Supplier' },
+    { name: 'Monarch', category: 'Control Systems' },
+    { name: 'Fermator', category: 'Door Systems' },
+    { name: 'Montanari Group', category: 'Traction Machines' },
+    { name: 'Monadrive', category: 'Drive Systems' },
+    { name: 'Arkel', category: 'Electronics' },
+    { name: 'Sicor', category: 'Component Supplier' },
+    { name: 'Bharat Bijlee', category: 'Motors & Drives' },
+    { name: 'Genesis', category: 'Technology Partner' },
+    { name: 'Usha Martin', category: 'Wire Ropes' },
+    { name: 'GMV', category: 'Hydraulic Systems' },
   ];
 
   return (
@@ -229,12 +237,12 @@ export default function Home() {
               We collaborate with industry leaders to deliver excellence in every project.
             </p>
           </div>
-          <div className="mt-12 grid gap-8 grid-cols-2 md:grid-cols-4">
+          <div className="mt-12 grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {partners.map((partner, index) => (
               <Card key={index} className="shadow-lg rounded-2xl text-center">
-                <CardContent className="p-6 flex flex-col items-center justify-center">
-                    <div className="mb-4">
-                        {partner.icon}
+                <CardContent className="p-6 flex flex-col items-center justify-center h-full">
+                    <div className="mb-4 text-primary">
+                        <Settings className="h-8 w-8" />
                     </div>
                   <h3 className="font-bold text-lg">{partner.name}</h3>
                   <p className="text-sm text-muted-foreground">{partner.category}</p>
