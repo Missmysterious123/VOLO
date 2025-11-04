@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from "zod";
+import { GoogleSpreadsheet } from "google-spreadsheet";
+import { JWT } from "google-auth-library";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -9,16 +11,16 @@ const contactSchema = z.object({
 });
 
 export type State = {
-    errors?: {
-        name?: string[];
-        email?: string[];
-        message?: string[];
-    };
-    message?: string | null;
-    success: boolean;
+  errors?: {
+    name?: string[];
+    email?: string[];
+    message?: string[];
+  };
+  message?: string | null;
+  success: boolean;
 };
 
-export async function submitInquiry(prevState: State | null, formData: FormData) : Promise<State> {
+export async function submitInquiry(prevState: State | null, formData: FormData): Promise<State> {
   const validatedFields = contactSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -34,16 +36,34 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
   }
 
   const { name, email, message } = validatedFields.data;
+  
+  try {
+    const serviceAccountAuth = new JWT({
+        email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
+        scopes: [
+            'https://www.googleapis.com/auth/spreadsheets',
+        ],
+    });
 
-  // In a real application, you would save to a database.
-  // For this demo, we'll just log it to the console.
-  console.log("New Inquiry Received:");
-  console.log("Name:", name);
-  console.log("Email:", email);
-  console.log("Message:", message);
+    const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID as string, serviceAccountAuth);
+    await doc.loadInfo();
+    const sheet = doc.sheetsByIndex[0];
+    await sheet.addRow({ 
+        Timestamp: new Date().toISOString(),
+        Name: name, 
+        Email: email, 
+        Message: message 
+    });
 
-  // Simulate network delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
+  } catch (error) {
+    console.error("Error saving to Google Sheet:", error);
+    return {
+        message: "An error occurred while submitting your inquiry. Please try again later.",
+        success: false,
+    }
+  }
+
 
   return {
     message: "Thank you! Your inquiry has been submitted successfully.",
