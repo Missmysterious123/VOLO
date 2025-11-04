@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, ChevronDown, Home, ShoppingCart, Mail, ArrowRight, User, Briefcase } from 'lucide-react';
+import { Menu, ChevronDown, Home, ShoppingCart, Mail, ArrowRight, User, Briefcase, Info } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
@@ -22,7 +22,7 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
-  { href: '/about', label: 'About', icon: <User className="h-5 w-5" /> },
+  { href: '/about', label: 'About', icon: <Info className="h-5 w-5" /> },
   { 
     href: '/products', 
     label: 'Products',
@@ -33,7 +33,6 @@ const navLinks = [
       { href: '/products/austre', label: 'Volo Austre Series' },
     ]
   },
-  { href: '/partner', label: 'Partner', icon: <Briefcase className="h-5 w-5" /> },
   { href: '/contact', label: 'Contact', icon: <Mail className="h-5 w-5" /> },
 ];
 
