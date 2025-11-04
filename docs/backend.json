@@ -1,0 +1,120 @@
+{
+  "entities": {
+    "ContactFormSubmission": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactFormSubmission",
+      "type": "object",
+      "description": "Represents a contact form submission from a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact form submission."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the person submitting the contact form."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the person submitting the contact form.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "The message content of the contact form submission."
+        },
+        "submissionDate": {
+          "type": "string",
+          "description": "The date and time when the contact form was submitted.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "message",
+        "submissionDate"
+      ]
+    },
+    "Product": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a Volo product, such as a lift or elevator series.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the product."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the product series (e.g., Alto, Relux, Austre)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the product's features and specifications."
+        },
+        "pricing": {
+          "type": "number",
+          "description": "The price of the product."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the product image.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "description",
+        "pricing",
+        "imageUrl"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/contactFormSubmissions/{contactFormSubmissionId}",
+        "definition": {
+          "entityName": "ContactFormSubmission",
+          "schema": {
+            "$ref": "#/backend/entities/ContactFormSubmission"
+          },
+          "description": "Stores contact form submissions.  No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "contactFormSubmissionId",
+              "description": "Unique identifier for the contact form submission."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/products/{productId}",
+        "definition": {
+          "entityName": "Product",
+          "schema": {
+            "$ref": "#/backend/entities/Product"
+          },
+          "description": "Stores product information. No denormalized authorization fields are required.",
+          "params": [
+            {
+              "name": "productId",
+              "description": "Unique identifier for the product."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "Given the application's requirements, particularly the need to store contact form submissions and product information, the proposed Firestore structure prioritizes simplicity and security. The structure uses separate collections for `contactFormSubmissions` and `products`. The `contactFormSubmissions` collection stores data submitted through the contact form, requiring no specific ownership or complex authorization rules as the data is received passively. The `products` collection stores the product catalog. No user generated content requires no ownership related rules. This segregation simplifies security rules and improves query performance. This design provides authorization independence because there are no hierarchical dependencies; each collection can be secured independently. The proposed structure supports QAPs because `list` operations on `/products` can be secured to public read access, while `list` operations on `/contactFormSubmissions` can be limited to admin access (if needed in the future)."
+  }
+}
