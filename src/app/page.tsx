@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { products } from '@/lib/products';
-import { ArrowRight, Star, Shield, Zap, Wrench, Settings } from 'lucide-react';
+import { ArrowRight, Star, Shield, Zap, Wrench } from 'lucide-react';
 import { AnimatedSection } from '@/components/client/AnimatedSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -241,10 +241,7 @@ export default function Home() {
             {partners.map((partner, index) => (
               <Card key={index} className="shadow-lg rounded-2xl text-center">
                 <CardContent className="p-6 flex flex-col items-center justify-center h-full">
-                    <div className="mb-4 text-primary">
-                        <Settings className="h-8 w-8" />
-                    </div>
-                  <h3 className="font-bold text-lg">{partner.name}</h3>
+                  <h3 className="font-bold text-lg mb-2">{partner.name}</h3>
                   <p className="text-sm text-muted-foreground">{partner.category}</p>
                 </CardContent>
               </Card>
