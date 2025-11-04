@@ -16,7 +16,6 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   { 
     href: '/products', 
     label: 'Products',
@@ -26,7 +25,6 @@ const navLinks = [
       { href: '/products/austre', label: 'Volo Austre Series' },
     ]
   },
-  { href: '/partner', label: 'Partner' },
   { href: '/contact', label: 'Contact' },
 ];
 
