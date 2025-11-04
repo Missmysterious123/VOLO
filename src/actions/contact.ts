@@ -1,8 +1,8 @@
 "use server";
 
 import { z } from "zod";
-import { initializeFirebase } from "@/firebase";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { adminDb } from "@/firebase/admin";
+import { FieldValue } from "firebase-admin/firestore";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -36,13 +36,11 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
   }
 
   try {
-    // Initialize Firebase on the server-side for this action
-    const { firestore } = initializeFirebase();
-    const inquiriesCollection = collection(firestore, "contactInquiries");
+    const inquiriesCollection = adminDb.collection("contactInquiries");
     
-    await addDoc(inquiriesCollection, {
+    await inquiriesCollection.add({
       ...validatedFields.data,
-      submissionDate: serverTimestamp(),
+      submissionDate: FieldValue.serverTimestamp(),
     });
 
     return {
@@ -51,7 +49,6 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
     };
   } catch (error) {
     console.error("Error submitting inquiry to Firestore:", error);
-    // This will now catch specific Firebase errors on the server
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
     return {
       message: `An unexpected error occurred: ${errorMessage}. Please try again.`,
