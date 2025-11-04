@@ -1,10 +1,10 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, ChevronDown, Home, ShoppingCart, Mail, ArrowRight } from 'lucide-react';
+import { Menu, ChevronDown, Home, ShoppingCart, Mail, ArrowRight, User, Briefcase } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +22,7 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home', icon: <Home className="h-5 w-5" /> },
+  { href: '/about', label: 'About', icon: <User className="h-5 w-5" /> },
   { 
     href: '/products', 
     label: 'Products',
@@ -32,6 +33,7 @@ const navLinks = [
       { href: '/products/austre', label: 'Volo Austre Series' },
     ]
   },
+  { href: '/partner', label: 'Partner', icon: <Briefcase className="h-5 w-5" /> },
   { href: '/contact', label: 'Contact', icon: <Mail className="h-5 w-5" /> },
 ];
 
@@ -61,6 +63,9 @@ export default function Header() {
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
+                   <DropdownMenuItem asChild>
+                      <Link href="/products">All Products</Link>
+                    </DropdownMenuItem>
                   {link.subLinks.map(subLink => (
                     <DropdownMenuItem key={subLink.href} asChild>
                       <Link href={subLink.href}>{subLink.label}</Link>
@@ -93,6 +98,7 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="w-[300px] sm:w-[320px] p-0">
+               <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                <div className="p-4 border-b">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
                   <span className="font-extrabold text-xl tracking-wider">VOLO</span>
@@ -117,6 +123,19 @@ export default function Header() {
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
                               <ul className="flex flex-col gap-1 pt-2 border-l ml-5 pl-5">
+                                 <li>
+                                    <Link
+                                      href="/products"
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className={cn(
+                                        "flex items-center justify-between text-base font-medium rounded-md px-3 py-2 transition-colors hover:bg-muted",
+                                        pathname === "/products" ? "text-primary" : "text-muted-foreground"
+                                      )}
+                                    >
+                                      All Products
+                                      <ArrowRight className="h-4 w-4" />
+                                    </Link>
+                                  </li>
                                 {link.subLinks.map(subLink => (
                                   <li key={subLink.href}>
                                     <Link
