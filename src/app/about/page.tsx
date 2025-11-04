@@ -116,25 +116,6 @@ export default function AboutPage() {
           ))}
         </div>
       </AnimatedSection>
-      
-      <AnimatedSection className="mt-20">
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Meet the Team</h2>
-          <p className="mt-4 max-w-3xl mx-auto text-muted-foreground">
-            The dedicated professionals powering Volo's success.
-          </p>
-        </div>
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {team.map((member, index) => (
-            <div key={index} className="text-center flex flex-col items-center">
-              <Avatar className="h-24 w-24 mb-4">
-                <AvatarFallback className="text-4xl">{member.avatar}</AvatarFallback>
-              </Avatar>
-              <h3 className="font-bold text-lg">{member.role}</h3>
-            </div>
-          ))}
-        </div>
-      </AnimatedSection>
 
        <AnimatedSection className="mt-20 text-center">
             <Card className="shadow-lg rounded-2xl inline-block bg-primary text-primary-foreground">
