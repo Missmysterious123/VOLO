@@ -36,6 +36,7 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
   }
 
   try {
+    // Initialize Firebase on the server-side for this action
     const { firestore } = initializeFirebase();
     const inquiriesCollection = collection(firestore, "contactInquiries");
     
@@ -50,8 +51,10 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
     };
   } catch (error) {
     console.error("Error submitting inquiry to Firestore:", error);
+    // This will now catch specific Firebase errors on the server
+    const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
     return {
-      message: "An unexpected error occurred. Please try again.",
+      message: `An unexpected error occurred: ${errorMessage}. Please try again.`,
       success: false,
     };
   }
