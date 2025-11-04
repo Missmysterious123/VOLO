@@ -39,12 +39,9 @@ export default function Home() {
           <p className="mt-4 text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto">
             A house with an elegant modern lift & elevator that is perfect for you & your family, now comes at an affordable price.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-8 flex justify-center">
             <Button asChild size="lg" className="font-bold bg-primary text-primary-foreground hover:bg-primary/90">
               <Link href="/contact">Get a Quote</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary font-bold">
-              <Link href="/partner">Refer & Earn Discount</Link>
             </Button>
           </div>
         </AnimatedSection>
