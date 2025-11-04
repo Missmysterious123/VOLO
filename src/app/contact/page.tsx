@@ -1,9 +1,9 @@
 import { AnimatedSection } from "@/components/client/AnimatedSection";
 import ContactForm from "@/components/client/ContactForm";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Handshake } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -91,8 +91,24 @@ export default function ContactPage() {
           </div>
         </AnimatedSection>
       </div>
+
+      <AnimatedSection id="partner-with-us" className="py-16 md:py-24 text-center">
+        <Card className="shadow-lg rounded-2xl inline-block bg-primary/10">
+          <CardHeader>
+            <div className="flex items-center gap-4 justify-center">
+              <Handshake className="h-8 w-8 text-primary" />
+              <CardTitle className="text-3xl">Partner With Us</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We are always looking to collaborate with architects, builders, and suppliers who share our commitment to quality and innovation. If you're interested in becoming a partner, please get in touch with us using the contact form above.
+            </p>
+          </CardContent>
+        </Card>
+      </AnimatedSection>
       
-       <AnimatedSection id="partners" className="py-16 md:py-24 bg-background">
+       <AnimatedSection id="partners" className="pb-16 md:pb-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold">Our Trusted Partners</h2>
