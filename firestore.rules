@@ -1,40 +1,10 @@
-/**
- * @fileoverview Firestore Security Rules for Prototyping.
- *
- * Core Philosophy:
- * This ruleset prioritizes security by default, restricting access unless explicitly allowed.
- * It is designed for rapid prototyping and assumes minimal data validation.
- *
- * Data Structure:
- * The database consists of two top-level collections: `contactFormSubmissions` and `products`.
- *
- * Key Security Decisions:
- * - No user listing is allowed.
- * - All write operations require authentication.
- * - The structure provides authorization independence because there are no hierarchical dependencies; each collection can be secured independently.
- *
- * Access Control Patterns:
- * - `/contactFormSubmissions`: Publicly readable, but only authenticated users can create submissions. Updates and deletes are disallowed.
- * - `/products`: Publicly readable. Only authenticated users can create product listings. Updates and deletes are disallowed.
- */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-
-    /**
-     * @description Allows public read (get, list) access and authenticated create access to contact form submissions. Updates and deletes are disallowed.
-     * @path /contactFormSubmissions/{contactFormSubmissionId}
-     * @allow (get, list): Any user can read contact form submissions.
-     * @allow (create): Any authenticated user can create a contact form submission.
-     * @deny (update, delete): No one can update or delete a contact form submission.
-     * @principle Allows public read access while restricting write access to authenticated users only.
-     */
-    match /contactFormSubmissions/{contactFormSubmissionId} {
-      allow get: if true;
-      allow list: if true;
-      allow create: if isSignedIn();
-      allow update: if false;
-      allow delete: if false;
+    
+    match /contactInquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
     }
 
     /**

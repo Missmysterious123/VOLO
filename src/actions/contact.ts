@@ -1,6 +1,8 @@
 "use server";
 
 import { z } from "zod";
+import { initializeFirebase } from "@/firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -33,13 +35,24 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
     };
   }
 
-  // Here you could add logic to save the data, e.g., to a database or send an email.
-  // For now, we'll just simulate a successful submission.
+  try {
+    const { firestore } = initializeFirebase();
+    const inquiriesCollection = collection(firestore, "contactInquiries");
+    
+    await addDoc(inquiriesCollection, {
+      ...validatedFields.data,
+      submissionDate: serverTimestamp(),
+    });
 
-  console.log("New inquiry:", validatedFields.data);
-
-  return {
-    message: "Thank you! Your inquiry has been submitted successfully.",
-    success: true,
-  };
+    return {
+      message: "Thank you! Your inquiry has been submitted successfully.",
+      success: true,
+    };
+  } catch (error) {
+    console.error("Error submitting inquiry to Firestore:", error);
+    return {
+      message: "An unexpected error occurred. Please try again.",
+      success: false,
+    };
+  }
 }

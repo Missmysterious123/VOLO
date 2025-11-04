@@ -6,6 +6,7 @@ import './globals.css';
 import { Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { WhatsAppButton } from '@/components/client/WhatsAppButton';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -22,13 +23,15 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("min-h-screen bg-background font-sans antialiased", montserrat.variable)}>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
-        <WhatsAppButton />
-        <Toaster />
+        <FirebaseClientProvider>
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+          <WhatsAppButton />
+          <Toaster />
+        </FirebaseClientProvider>
       </body>
     </html>
   );
