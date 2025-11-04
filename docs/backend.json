@@ -1,36 +1,5 @@
 {
   "entities": {
-    "ContactInquiry": {
-      "title": "Contact Inquiry",
-      "description": "Represents a contact form submission from a user.",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the person submitting the contact form."
-        },
-        "email": {
-          "type": "string",
-          "description": "The email address of the person submitting the contact form.",
-          "format": "email"
-        },
-        "message": {
-          "type": "string",
-          "description": "The message content of the contact form submission."
-        },
-        "submissionDate": {
-          "type": "string",
-          "description": "The date and time when the contact form was submitted.",
-          "format": "date-time"
-        }
-      },
-      "required": [
-        "name",
-        "email",
-        "message",
-        "submissionDate"
-      ]
-    },
     "Product": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Product",
@@ -75,12 +44,6 @@
     ]
   },
   "firestore": {
-    "/contactInquiries/{inquiryId}": {
-      "schema": {
-        "$ref": "#/entities/ContactInquiry"
-      },
-      "description": "Stores contact form submissions from the website."
-    },
     "/products/{productId}": {
       "schema": {
         "$ref": "#/entities/Product"

@@ -1,8 +1,6 @@
 "use server";
 
 import { z } from "zod";
-import { adminDb } from "@/firebase/admin";
-import { FieldValue } from "firebase-admin/firestore";
 import nodemailer from "nodemailer";
 
 const contactSchema = z.object({
@@ -39,18 +37,7 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
   const { name, email, message } = validatedFields.data;
 
   try {
-    // 1. Save to Firestore
-    const inquiriesCollection = adminDb.collection("contactInquiries");
-    const submissionDate = FieldValue.serverTimestamp();
-    
-    await inquiriesCollection.add({
-      name,
-      email,
-      message,
-      submissionDate,
-    });
-
-    // 2. Send email
+    // Send email
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
@@ -80,7 +67,7 @@ export async function submitInquiry(prevState: State | null, formData: FormData)
       success: true,
     };
   } catch (error) {
-    console.error("Error submitting inquiry or sending email:", error);
+    console.error("Error sending email:", error);
     const errorMessage = error instanceof Error ? error.message : "An unknown error occurred.";
     return {
       message: `An unexpected error occurred: ${errorMessage}. Please try again.`,

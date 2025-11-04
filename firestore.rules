@@ -2,11 +2,6 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    match /contactInquiries/{inquiryId} {
-      allow create: if true;
-      allow read, update, delete: if false;
-    }
-
     /**
      * @description Allows public read (get, list) access and authenticated create access to products. Updates and deletes are disallowed.
      * @path /products/{productId}
