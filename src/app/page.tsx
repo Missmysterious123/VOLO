@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { products } from '@/lib/products';
-import { ArrowRight, Star, Shield, Zap, Wrench } from 'lucide-react';
+import { ArrowRight, Star, Shield, Zap, Wrench, Building, Briefcase } from 'lucide-react';
 import { AnimatedSection } from '@/components/client/AnimatedSection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
@@ -56,6 +56,13 @@ export default function Home() {
         avatar: 'AD',
         testimonial: "Luxury and performance in one package. The Volo Austre series is simply breathtaking. It's more than just an elevator; it's a statement piece. Worth every penny.",
       },
+  ];
+
+  const partners = [
+    { name: 'Prestige Group', category: 'Real Estate Developer', icon: <Building className="h-8 w-8 text-primary" /> },
+    { name: 'Sobha Ltd.', category: 'Real Estate Developer', icon: <Building className="h-8 w-8 text-primary" /> },
+    { name: 'Total Environment', category: 'Architectural Firm', icon: <Briefcase className="h-8 w-8 text-primary" /> },
+    { name: 'Zachariah and Sons', category: 'Engineering Consultants', icon: <Briefcase className="h-8 w-8 text-primary" /> },
   ];
 
   return (
@@ -206,6 +213,31 @@ export default function Home() {
                   <blockquote className="text-muted-foreground flex-grow">
                     “{testimonial.testimonial}”
                   </blockquote>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* Partners Section */}
+      <AnimatedSection id="partners" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold">Our Trusted Partners</h2>
+            <p className="mt-4 text-muted-foreground">
+              We collaborate with industry leaders to deliver excellence in every project.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-8 grid-cols-2 md:grid-cols-4">
+            {partners.map((partner, index) => (
+              <Card key={index} className="shadow-lg rounded-2xl text-center">
+                <CardContent className="p-6 flex flex-col items-center justify-center">
+                    <div className="mb-4">
+                        {partner.icon}
+                    </div>
+                  <h3 className="font-bold text-lg">{partner.name}</h3>
+                  <p className="text-sm text-muted-foreground">{partner.category}</p>
                 </CardContent>
               </Card>
             ))}
