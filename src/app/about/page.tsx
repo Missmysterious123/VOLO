@@ -15,10 +15,10 @@ export default function AboutPage() {
     const missionImage = PlaceHolderImages.find(p => p.id === 'about-mission');
     const visionImage = PlaceHolderImages.find(p => p.id === 'about-vision');
     const team = [
-        { name: 'Swaroop', role: 'Founder & CEO', avatar: 'S' },
-        { name: 'Haroon', role: 'Head of Engineering', avatar: 'H' },
-        { name: 'Faizan', role: 'Lead Technician', avatar: 'F' },
-        { name: 'Zabi', role: 'Operations Manager', avatar: 'Z' }
+        { role: 'Founder & CEO', avatar: 'S' },
+        { role: 'Head of Engineering', avatar: 'H' },
+        { role: 'Lead Technician', avatar: 'F' },
+        { role: 'Operations Manager', avatar: 'Z' }
     ];
      const values = [
         { icon: <Shield className="h-8 w-8 text-primary" />, title: 'Safety First', description: 'Our foremost priority is the safety and well-being of our customers and employees.' },
@@ -130,8 +130,7 @@ export default function AboutPage() {
               <Avatar className="h-24 w-24 mb-4">
                 <AvatarFallback className="text-4xl">{member.avatar}</AvatarFallback>
               </Avatar>
-              <h3 className="font-bold text-lg">{member.name}</h3>
-              <p className="text-sm text-primary">{member.role}</p>
+              <h3 className="font-bold text-lg">{member.role}</h3>
             </div>
           ))}
         </div>

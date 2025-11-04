@@ -15,7 +15,7 @@ export function WhatsAppButton() {
       <Link href="https://wa.me/917019661105" target="_blank" rel="noopener noreferrer">
         <button className="bg-green-500 text-white rounded-full p-4 shadow-lg flex items-center gap-2 hover:bg-green-600 transition-colors">
             <MessageCircle className="h-6 w-6" />
-            <span className="hidden sm:inline font-semibold">Chat with Volo</span>
+            <span className="hidden sm:inline font-semibold">WhatsApp Arattai</span>
         </button>
       </Link>
     </motion.div>
