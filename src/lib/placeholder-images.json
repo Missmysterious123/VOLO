@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero",
-      "description": "A luxury home interior with a modern aesthetic.",
-      "imageUrl": "https://images.unsplash.com/photo-1531971589569-0d9370cbe1e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBob21lfGVufDB8fHx8MTc2MTkyNDI1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "luxury home"
+      "description": "A luxury elevator with glass doors and sophisticated lighting.",
+      "imageUrl": "https://images.unsplash.com/photo-1676459250563-0b83f43ddc26?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsdXh1cnklMjBnbGFzcyUyMGVsZXZhdG9yfGVufDB8fHx8MTc2MTkyNDI1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury glass elevator"
     },
     {
       "id": "alto",
@@ -35,6 +35,12 @@
       "description": "A cityscape of Bengaluru representing urban mobility.",
       "imageUrl": "https://images.unsplash.com/photo-1651991372794-b1fcaaf4d634?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxCZW5nYWx1cnUlMjBjaXR5c2NhcGV8ZW58MHx8fHwxNzYxOTI0MjUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Bengaluru cityscape"
+    },
+    {
+      "id": "why-volo",
+      "description": "A team of engineers collaborating on a project.",
+      "imageUrl": "https://images.unsplash.com/photo-1748256622734-92241ae7b43f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbmdpbmVlcmluZyUyMHRlYW18ZW58MHx8fHwxNzYyMTY5MjM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "engineering team"
     }
   ]
 }
