@@ -1,6 +1,5 @@
 import { AnimatedSection } from "@/components/client/AnimatedSection";
 import ContactForm from "@/components/client/ContactForm";
-import Map from "@/components/client/Map";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
@@ -45,9 +44,6 @@ export default function ContactPage() {
                       </Button>
                     </div>
                 </div>
-            </div>
-            <div className="h-80 rounded-2xl overflow-hidden shadow-lg">
-              <Map />
             </div>
           </div>
         </AnimatedSection>
