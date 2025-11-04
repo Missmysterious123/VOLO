@@ -41,6 +41,18 @@
       "description": "A team of engineers collaborating on a project.",
       "imageUrl": "https://images.unsplash.com/photo-1748256622734-92241ae7b43f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbmdpbmVlcmluZyUyMHRlYW18ZW58MHx8fHwxNzYyMTY5MjM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "engineering team"
+    },
+    {
+      "id": "contact-1",
+      "description": "Stylish elevator in a modern building lobby.",
+      "imageUrl": "https://images.unsplash.com/photo-1689314503019-db040e748bd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9kZXJuJTIwZWxldmF0b3J8ZW58MHx8fHwxNzYyMjQyMzgxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern elevator"
+    },
+    {
+      "id": "contact-2",
+      "description": "Close-up of an elevator control panel.",
+      "imageUrl": "https://images.unsplash.com/photo-1597132826409-c3d453306799?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxlbGV2YXRvciUyMGNvbnRyb2xzfGVufDB8fHx8MTc2MjI1MzkyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "elevator controls"
     }
   ]
 }

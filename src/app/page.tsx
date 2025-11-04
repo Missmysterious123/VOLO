@@ -58,21 +58,6 @@ export default function Home() {
       },
   ];
 
-  const partners = [
-    { name: 'TorinDrive', category: 'Technology Partner' },
-    { name: 'Wittur', category: 'Component Supplier' },
-    { name: 'Monarch', category: 'Control Systems' },
-    { name: 'Fermator', category: 'Door Systems' },
-    { name: 'Montanari Group', category: 'Traction Machines' },
-    { name: 'Monadrive', category: 'Drive Systems' },
-    { name: 'Arkel', category: 'Electronics' },
-    { name: 'Sicor', category: 'Component Supplier' },
-    { name: 'Bharat Bijlee', category: 'Motors & Drives' },
-    { name: 'Genesis', category: 'Technology Partner' },
-    { name: 'Usha Martin', category: 'Wire Ropes' },
-    { name: 'GMV', category: 'Hydraulic Systems' },
-  ];
-
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -221,28 +206,6 @@ export default function Home() {
                   <blockquote className="text-muted-foreground flex-grow">
                     “{testimonial.testimonial}”
                   </blockquote>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Partners Section */}
-      <AnimatedSection id="partners" className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold">Our Trusted Partners</h2>
-            <p className="mt-4 text-muted-foreground">
-              We collaborate with industry leaders to deliver excellence in every project.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {partners.map((partner, index) => (
-              <Card key={index} className="shadow-lg rounded-2xl text-center">
-                <CardContent className="p-6 flex flex-col items-center justify-center h-full">
-                  <h3 className="font-bold text-lg mb-2">{partner.name}</h3>
-                  <p className="text-sm text-muted-foreground">{partner.category}</p>
                 </CardContent>
               </Card>
             ))}
