@@ -4,14 +4,14 @@ service cloud.firestore {
     
     match /contactInquiries/{inquiryId} {
       allow create: if true;
-      allow read, update, delete: if request.auth != null;
+      allow read, update, delete: if false;
     }
 
     /**
      * @description Allows public read (get, list) access and authenticated create access to products. Updates and deletes are disallowed.
      * @path /products/{productId}
      * @allow (get, list): Any user can read product information.
-     * @allow (create): Any authenticated user can create a product.
+     * @allow (create): If the user is signed in.
      * @deny (update, delete): No one can update or delete a product.
      * @principle Allows public read access while restricting write access to authenticated users only.
      */
